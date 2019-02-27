@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-sm-3">
+      <app-header></app-header>
+  </div>
+  <div class="col-sm-9">
+   
+
+    <div class="page-header text-center">
+      <h3>DISTRIBUTOR REGISTRATION</h3>
+      
+    </div>
+      <BR><br><br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+         
+        </div>
+        <div class="col-sm-4">
+          <form [formGroup]="angForm" novalidate>
+            <div class="form-group">
+                <label> Name</label>
+                <input class="form-control" formControlName="fname" type="text" id="id1" placeholder="Enter Distributor Name" #name>
+                <br>
+                <button type="submit" class="btn" (click)="shop_registeration(name.value)">Register</button>
+            </div>
+
+            <div *ngIf="angForm.controls['fname'].invalid && (angForm.controls['fname'].dirty || angForm.controls['fname'].touched)"  >
+                <div *ngIf="angForm.controls['fname'].errors.required">
+                  <p style="color:rgb(240, 48, 48)"><small>Enter Text Only.</small></p>
+                </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="col-sm-4">
+          
+        </div>
+      </div>
+    </div>
+    
+    
+    <ngx-spinner></ngx-spinner>
+    <div class="footer">
+        <div class="content">
+            <p><br>Copyright &copy; ChainFlux</p>
+        </div>
+    </div>
+
+
+  </div>
+</div>
+
+

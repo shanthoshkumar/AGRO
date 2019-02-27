@@ -1,0 +1,122 @@
+
+
+    <div class="row">
+        <div class="col-sm-3">
+            <app-home></app-home>
+        </div>
+        <div class="col-sm-9">
+            
+            <div class="container-fluid">
+                        <!-- <h2><b>Search</b></h2> -->
+                        <hr><br><br><br> 
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label><b>&nbsp;&nbsp;</b></label>
+                                <b> Select Crop: &nbsp;&nbsp;</b>
+                                <select #options (change)="sortlisting(options.value);show();" >
+                                    <option>Select</option>
+                                    <option *ngFor="let i of avail_crops_ids" value={{i.crop_id}}>{{i.crop_id}}</option>
+                                </select>
+                          </div>
+                          
+                          <div class="col-sm-3">
+                              <label><b>&nbsp;&nbsp;</b></label>
+                                  <label><b> Select User:&nbsp;&nbsp;</b></label>
+                                  <select #poptions (change)="persons_details_by_selected(poptions.value);hide();">
+                                      <option>Select</option>
+                                      <option value="1" >farmer</option>
+                                      <option value="2" >Supplier</option>
+                                      <option value="3" >Distributor</option>
+                                      <option value="4" >Retailer</option>
+                          
+                                  </select>
+                          </div>
+                          
+                          <div class="col-sm-6">
+                              <label><b>&nbsp;&nbsp;</b></label>
+                                  <label><b>Select Address:&nbsp;&nbsp;</b></label>
+                                  <select #adoptions (change)="general(adoptions.value);" >
+                                      <option>Select</option>
+                                      <option *ngFor="let j of persons_detail" value={{j.address}}>{{j.address}}</option>
+                                  </select>
+                              </div>
+                          </div>
+                            <div class="row">
+                              <div class="col-sm-12" id="div1" style="display: none">
+                              <br><br>
+                                <div class="table-wrapper-2" >  
+                                <table class="table table-striped" >
+                                   <thead class="tablecolor">
+                                     <tr>
+                                      <th>Crop holder Address</th>
+                                         <th>Holder ID</th>
+                                         <th>Holder Name</th>                        
+                                         <th>Crop ID</th>
+                                         <th>Crop Name</th>
+                                         <th>Crop Price</th>
+                                         <th>Crop Quantity</th>
+                          
+                                         
+                                     </tr>
+                                   </thead>
+                                   <tbody id="body_bank">
+                                       <tr *ngFor="let s of buyerdetails" >
+                                        <td>{{s.address}}</td>
+                                           <td>{{s.id}}</td>                         
+                                           <td>{{s.name }}</td> 
+                                           <td>{{s.cropid }}</td>
+                                           <td>{{s.cropname}}</td>
+                                           <td>{{s.cropprice}}</td>
+                                           <td>{{s.cropquantity}}</td>
+                                       </tr>
+                                     </tbody>
+                                 </table>
+                                 </div>
+                              </div>
+                    </div>
+                    <div class="col-sm-12" id="div2" style="display: none">
+                        <br><br>
+                          <div class="table-wrapper-2" >  
+                          <table class="table table-striped" >
+                             <thead class="tablecolor">
+                               <tr>
+                                <th>Crop ID</th>
+                                   <th>Crop Name</th>                      
+                                   <th>Crop Added on</th>
+                                   <th>Crop Quantity</th>
+                                   <th>Crop price</th>
+                                   <th>Farmer ID</th>
+                                   <th>Farmer Name</th>
+                                   <th>Farmer Address</th>
+                               </tr>
+                             </thead>
+                             <tbody id="body_bank">
+                                 <tr *ngFor="let p of available_crops" >
+                                  <td>{{p.cropid}}</td>
+                                     <td>{{p.cropname}}</td>                         
+                                     <td>{{p.date }}</td> 
+                                     <td>{{p.quantity }}</td>
+                                     <td>{{p.price}}</td>
+                                     <td>{{p.farmerid}}</td>
+                                     <td>{{p.farmername}}</td>
+                                     <td>{{p.farmeraddress}}</td>
+                                 </tr>
+                               </tbody>
+                           </table>
+                           </div>
+                        </div>
+              </div>
+
+              <div class="footer">
+                    <div class="content">
+                            <p><br>Copyright &copy; ChainFlux</p>
+                        </div>
+              </div>
+
+        </div>
+      </div>
+      
+
+      <!-- <option *ngFor="let p of product_details" [ngValue]="crops"> 
+            {{ Total_products }}  
+      </option> -->

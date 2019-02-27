@@ -1,0 +1,183 @@
+
+<div class="row">
+    <div class="col-sm-3">
+        <app-header></app-header>
+    </div>
+    <div class="col-sm-9">
+      
+            <form [formGroup]="angForm" novalidate>
+        <div class="container-fluid">
+ <h2><b>Retailer</b> {{consumer_name}}</h2>
+ <hr>
+            <br>
+               <div class="row">
+                   <div class="col-sm-3">
+                     <!-- <div class="row"> -->
+                    
+                       <!-- <div class="col-sm-6"> -->
+                               <h3><b>Retailer Purchase Crop</b></h3>
+                               <br>
+                               
+                           <div class="col-sm-12">
+                               <div class="form-group">
+                                   <label >Crop ID</label>
+                                   <input class="form-control" formControlName="pid" id="id1" type="number" placeholder="Enter the Crop ID" #productid>
+                                   <!-- <input type="text" class="form-control" id="id1" #productid  placeholder="Enter Crop Id"> -->
+                                 </div>
+                                 <div *ngIf="angForm.controls['pid'].invalid && (angForm.controls['pid'].dirty || angForm.controls['pid'].touched)">
+                                        <div *ngIf="angForm.controls['pid'].errors.required">
+                                            <p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+                                        </div>
+                            </div>
+                           </div>
+
+
+                     <div class="col-sm-12">
+                         <div class="form-group">
+                             <label >Quantity</label>
+                             <input class="form-control" formControlName="qty" id="id2" type="number" placeholder="Enter the Quantiy" #productquantity>
+                             <!-- <input type="text" class="form-control" id="id2" #productquantity   placeholder="Enter the Quantity"> -->
+                           </div>
+                           <div *ngIf="angForm.controls['qty'].invalid && (angForm.controls['qty'].dirty || angForm.controls['qty'].touched)" >
+                                <div *ngIf="angForm.controls['qty'].errors.required">
+                                    <p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+                                </div>
+                    </div>
+                     </div>
+
+
+                     <div class="col-sm-12">
+                           <div class="form-group">
+                               <label>Distributor ID</label>
+                               <input class="form-control" formControlName="supid" id="id3" type="number" placeholder="Enter Distributor id" #shopid>
+                               <!-- <input type="text" class="form-control" id="id3" #shopid  placeholder="Enter Distributor Id"> -->
+                             </div>
+                             <div *ngIf="angForm.controls['supid'].invalid && (angForm.controls['supid'].dirty || angForm.controls['supid'].touched)"  >
+									<div *ngIf="angForm.controls['supid'].errors.required">
+										<p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+									</div>
+						</div>
+                             </div>
+                     <br>
+                     <div class="col-sm-12">
+                     <button [disabled]="angForm.pristine || angForm.invalid" type="button" class="btn" (click)="Customer_purchase_product(productid.value,productquantity.value,shopid.value)">Purchase Crop</button>&nbsp;&nbsp;
+                    
+                     
+                       </div>
+                   </div>
+           
+                   <div class="col-sm-3">
+           
+                   </div>
+           
+                     <!-- </div> -->
+                      
+                   <!-- </div> -->
+           
+           
+                   <div class="col-sm-6">
+                           <h3><b>Available Crop Details</b></h3><br>
+                           <table class="table" style="overflow-y:auto;overflow-x:auto;display:block;height:300px;">
+                     
+                               <!--Table head-->
+                               <thead class="tablecolor">
+                                   <tr class="text-black">
+                                        <th>Crop Name</th>  
+                                       <th>Crop ID</th>    
+                                       <th>Distributor ID</th>                  
+                                       <th>Price  <small>(in ether)</small></th>
+                                       <th>Quantity</th>
+                                       <!-- <th>Seller ID</th> -->
+                                   </tr>
+                               </thead>
+                               <!--Table head-->
+                           
+                               <!--Table body-->
+                               <tbody >
+                                   
+                                       <tr *ngFor="let s of available_crop_details" >
+                                            <td>{{ s. product_name}}</td> 
+                                           <td>{{ s.productid }}</td> 
+                                           <td>{{s.shopid}}</td>
+                                           <td>{{ s.price }}</td>
+                                           <td>{{s.quantity}}</td>
+                                           <!-- <td>{{s.sellerid}}</td> -->
+                                       </tr>
+                               </tbody>
+                               <!--Table body-->
+                           </table>
+                     </div>
+                     
+                 </div>
+           
+                 <br>
+                
+                 
+                 <div class="row">
+                     <!-- <div class="col-sm-2"></div> -->
+                   <div class="col-sm-12">
+           
+                           <h3><b>Purchased Crop Details</b></h3><br>
+                           <table class="table"  style="overflow-y:auto;display:block;height:300px;width:410px;">
+                     
+                               <!--Table head-->
+                               <thead class="tablecolor">
+                                   <tr class="text-black">
+                                        <th>Crop name</th>   
+                                       <th>Crop ID</th>                        
+                                       <th>Quantity</th>
+                                       <th>Distributor ID</th>
+                                   </tr>
+                               </thead>
+                               <!--Table head-->
+                           
+                               <!--Table body-->
+                               <tbody >                                
+                                       <tr *ngFor="let s of customer_details" >
+                                         <td>{{s.product_name}}</td>
+                                        <td>{{s.product_id}}</td>
+                                           <td>{{s.quantity}}</td>
+                                           <td>{{ s.shop_id }}</td> 
+                                       </tr>
+                               </tbody>
+                               <!--Table body-->
+                           </table>
+           
+           
+                    
+              
+                  
+                 </div>
+               </div>
+           </div>
+
+
+</form>
+    </div>
+    <div class="footer">
+            <div class="content">
+                    <p><br>Copyright &copy; ChainFlux</p>
+                </div>
+    </div>
+  </div>
+  
+  <ngx-spinner></ngx-spinner>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
+

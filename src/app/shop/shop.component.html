@@ -1,0 +1,165 @@
+<div class="row">
+  <div class="col-sm-3">
+      <app-header></app-header>
+  </div>
+  <div class="col-sm-9">
+
+
+		<div class="Container-fluid">
+				<h2><b>Distributor</b> {{shop_name}}</h2>
+				<hr>
+
+		
+<div class="row">
+	<div class="col-sm-4">
+			<form [formGroup]="angForm" novalidate>
+					<br>
+					<div class="col-sm-9">
+							<h3><b>Distributor Add Crop</b></h3>
+							<div class="form-group">
+									<br>
+									<label>Crop ID</label>
+									<input class="form-control" formControlName="pid" id="id1" type="number" placeholder="Enter the Crop ID" #productid>
+							</div>
+							<div *ngIf="angForm.controls['pid'].invalid && (angForm.controls['pid'].dirty || angForm.controls['pid'].touched)">
+									<div *ngIf="angForm.controls['pid'].errors.required">
+										<p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+									</div>
+						</div>
+	
+						<div class="form-group">
+									<label>Quantity</label>
+									<input class="form-control" formControlName="qty" id="id2" type="number" placeholder="Enter the Quantiy" #productquantity>
+							</div>
+							<div *ngIf="angForm.controls['qty'].invalid && (angForm.controls['qty'].dirty || angForm.controls['qty'].touched)" >
+									<div *ngIf="angForm.controls['qty'].errors.required">
+										<p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+									</div>
+						</div>
+	
+						<!-- <div class="form-group">
+									<label>Price</label>
+									<input class="form-control" formControlName="price" type="text"  #newprice readonly/>
+							</div>
+							 -->
+							 <div class="form-group">
+									<label>Supplier ID</label>
+									<input class="form-control" formControlName="supid" id="id3" type="number" placeholder="Enter Supplier ID" #suid>
+							</div>
+							<div *ngIf="angForm.controls['supid'].invalid && (angForm.controls['supid'].dirty || angForm.controls['supid'].touched)"  >
+									<div *ngIf="angForm.controls['supid'].errors.required">
+										<p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+									</div>
+						</div>
+	
+						<div class="form-group">
+									<label>Update Price</label>
+	
+									<input class="form-control" formControlName="price" id="id4" type="number" placeholder="Enter New Price" #newprice>
+							</div>
+							<div *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)"  >
+									<div *ngIf="angForm.controls['price'].errors.required">
+										<p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+									</div>
+						</div>
+	
+						<button [disabled]="angForm.pristine || angForm.invalid" type="button"  #b2 class="btn" (click)="buy(productid.value,productquantity.value,newprice.value,suid.value)">Purchase Crop
+							</button>
+				</div>
+			</form>
+	</div>
+	<div class="col-sm-8">
+			<br>
+			<br>
+			<h3><b> Available Crop Details</b></h3><br>
+			<div class="table-wrapper-2" > 
+			<table class="table table-striped">
+					<thead class="tablecolor">
+						<tr>
+							<th>Crop Name</th>
+							<th>Crop ID</th>
+							<th>Crop Quantity</th>
+							<th>Price  <small>(in ether)</small></th>
+							<th>Supplier ID</th>
+							<th>Supplier Name</th>
+						</tr>
+					</thead>
+					<tbody id="body_bank">
+							<tr *ngFor="let os of available_supplierproducts" >
+									<td>{{ os.productname }}</td>
+									<td>{{ os.productid }}</td> 									
+									<td>{{ os.productquantity }}</td>
+									<td>{{ os.productprice }}</td>
+									<td>{{ os.supplierid }}</td>
+									<td>{{ os.suppliername }}</td>
+							</tr>
+				
+			</tbody>
+				</table>
+				
+
+		</div>
+</div>
+</div>
+
+
+
+<div class="row">
+			
+			
+					<div class="col-sm-1">
+						
+						
+	</div>
+	
+					
+	
+				<!-- <div class="row"> -->
+					<!-- <div class="col-sm-1">	
+					</div>		 -->
+						<div class="col-sm-10">
+						<br><br>
+						<br><br>
+						<h3><b>Purchased Crop Details</b></h3><br>
+						<div class="table-wrapper-2" > 
+						<table class="table table-striped">
+								<thead class="tablecolor">
+									<tr>
+											<th>Crop Name</th>
+											<th>Crop ID</th>
+										<th>Seller ID</th>
+										<th>Quantity</th>
+										<th>Price<small>(in ether)</small></th>
+									</tr>
+								</thead>
+								<tbody id="body_bank">
+										<tr *ngFor="let s of shops_available_products" >
+												<td>{{ s.product_name }}</td> 
+												<td>{{s.product_id }}</td>
+												<td>{{ s.seller_id }}</td> 
+												<td>{{s.product_quantity }}</td>
+												<td>{{s.product_price}}</td>
+										</tr>
+						</tbody>
+							</table>
+	                 </div>
+					</div>
+					<div class="col-sm-1"></div>
+					</div>	
+				</div>
+		
+				<ngx-spinner></ngx-spinner>
+
+
+				<div class="footer">
+						<div class="content">
+								<p><br>Copyright &copy; ChainFlux</p>
+							</div>
+					  </div>
+  </div>
+</div>
+
+
+
+
+

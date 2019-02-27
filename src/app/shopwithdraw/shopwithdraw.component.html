@@ -1,0 +1,45 @@
+<div class="row">
+     
+       
+    <div class="col-sm-6">
+        <app-header></app-header>
+    </div>
+
+    
+    <div class="col-sm-2">
+            <form [formGroup]="angForm" novalidate>
+                    <div class="form-group">
+        <br><br><br><br><br><br>
+          <h3 style="text-align:center"><b>Balance in Ether</b></h3><br>
+        <h2 style="text-align:center"><b>{{shop_bal}}</b></h2>
+
+
+       &nbsp; &nbsp; <h3 style="text-align:center"><b>Withdraw</b></h3><br><br>
+       <input class="form-control" formControlName="pprice" type="text" id="id1" placeholder="Enter withdraw amount" #withdrawamt><br><br>
+        <!-- <input class="form-control" type="text" id="id1" placeholder="Enter withdraw amount" #withdrawamt ><br> -->
+        
+        <!-- <button   class="btn center-block" (click)="shop_widthdraw(withdrawamt.value)">withdraw</button> -->
+
+    </div> 
+    
+    <div *ngIf="angForm.controls['pprice'].invalid && (angForm.controls['pprice'].dirty || angForm.controls['pprice'].touched)" >
+            <div *ngIf="angForm.controls['pprice'].errors.required">
+                <p style="color:rgb(240, 48, 48)"><small>Price is required.</small></p>
+            </div>
+      </div>
+      <button type="button" [disabled]="angForm.pristine || angForm.invalid" #b2 class="btn center-block" (click)="shop_widthdraw(withdrawamt.value)">withdraw</button>
+
+        <div class="col-sm-4">
+
+        </div>
+    </form>
+</div>
+
+</div>
+<ngx-spinner></ngx-spinner> 
+
+<div class="footer">
+        <div class="content">
+                <p><br>Copyright &copy; ChainFlux</p>
+            </div>
+      </div>

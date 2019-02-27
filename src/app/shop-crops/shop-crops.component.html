@@ -1,0 +1,65 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row">
+    <div class="col-sm-3">
+        <app-home></app-home>
+    </div>
+    <div class="col-sm-9">
+            <h2><b>Distributor</b></h2>
+            <hr>
+        <br><br><br>
+<div class="row">
+  <div class="col-sm-8">
+      <h4><b>List of Distributor</b></h4><br>
+            
+      <table class="table table-striped" style="display:block;height:500px;">
+          <thead class="tablecolor">
+            <tr>
+              <th>Distributor ID</th>
+              <th>Distributor Name</th>
+              <th>Distributor Address</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody >
+              <tr *ngFor="let shop of shops" >
+                  <td>{{ shop.shop_id }}</td> 
+                  <td>{{ shop.shop_name }}</td>
+                  <td>{{ shop.shop_address }}</td>
+                   <!-- <li *ngFor="#item of items" #elem [id]="item.id"></li> -->
+                  <td><input type="button"  class="btn" value="View Crop details" [id]="shop.shop_id" (click)="crop_details(shop.shop_id)"></td>
+              </tr>
+      </tbody>
+        </table>  
+  </div>
+  <div class="col-sm-4">
+      <h4><b>Available Crop's Detail</b></h4><br>
+            
+      <table class="table table-striped" style="overflow-y:auto;display:block;height:500px;">
+          <thead class="tablecolor">
+            <tr>
+              <th>Crop ID</th>
+              <th>Crop Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let crop of cropdetails" >
+                  <td>{{ crop.crop_id }}</td> 
+                  <td>{{ crop.crop_name }}</td>
+                  <td>{{ crop.crop_quantity}}</td>
+                  <td>{{ crop.crop_price}}</td>
+              </tr>
+      </tbody>
+        </table>  
+  </div>
+</div>                
+    </div>
+  </div>
+  <div class="footer">
+        <div class="content">
+                <p><br>Copyright &copy; ChainFlux</p>
+            </div>
+  </div>
+

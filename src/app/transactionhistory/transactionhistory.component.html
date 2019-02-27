@@ -1,0 +1,137 @@
+<div class="row">
+  <div class="col-sm-3">
+      <app-home></app-home>
+  </div>
+  <div class="col-sm-9">
+    <div class="col-sm-12">
+      <h4><b>Product Transaction History</b></h4>
+      <table class= "table" style="overflow-y:auto;display:block;height:150px;width:900px">                     
+  <thead class="tablecolor"  >
+    <tr class="text-black">
+        <th>Farmer Address</th>
+        <th>Crop ID</th>
+        <th>Time Added</th>
+        <th>Price Fixed</th>
+        <th>Product Quantity</th>
+    </tr>
+  </thead>
+
+  <tbody id="body_bank">
+       
+        <tr *ngFor="let i of product_event" >
+            <td>{{i.args.farmer_adddress}}</td>
+            <td>{{i.args.crop_id}}</td>
+            <td>{{i.args.time_added  * 1000 | date:'dd-MM-yyyy HH:mm:ss '}}</td> 
+            <td>{{i.args.price_fixed/1000000000000000000 }}</td>
+            <td>{{i.args.product_quantity}}</td>       
+        </tr>
+  </tbody>
+
+  </table> 
+</div>
+
+
+<div class="col-sm-12">
+  <h4><b>Farmer to Supplier Transaction History</b></h4>
+  <table class= "table" style="overflow-y:auto;display:block;height:170px;">                     
+<thead class="tablecolor"  >
+<tr class="text-black">
+    <th>Crop ID</th>
+    <th>Farmer Address</th>
+    <th>Supplier Address</th>
+    <th>Quantity</th>
+    <th>Amount Paid</th>
+    <th>Bought on</th>
+</tr>
+</thead>
+
+<tbody id="body_bank">
+    <tr *ngFor="let i of supplier_event" >
+        <td>{{i.args.crop_id}}</td>
+        <td>{{i.args.farmer_adddress}}</td>
+        <td>{{i.args.supplier_address }}</td> 
+        <td>{{i.args.quantity }}</td>
+        <td>{{i.args.amount_paid/1000000000000000000}}</td>       
+        <td>{{i.args.time  * 1000 | date:'dd-MM-yyyy HH:mm:ss '}}</td>  
+    </tr>
+</tbody>
+
+</table> 
+</div>
+
+<div class="col-sm-12">
+  <h4><b>Supplier to Distributor Transaction History</b></h4>
+  <table class= "table" style="overflow-y:auto;display:block;height:180px;">                     
+<thead class="tablecolor"  >
+<tr class="text-black">
+    <th>Crop ID</th>
+    <th>Farmer Address</th>
+    <th>Supplier Address</th>
+    <th>Distributor Address</th>
+    <th>Quantity</th>
+    <th>Amount Paid</th>
+    <th>Bought on</th>
+</tr>
+</thead>
+
+<tbody id="body_bank">
+    <tr *ngFor="let i of distributor_event" >
+        <td>{{i.args.crop_id}}</td>
+        <td>{{i.args.farmer_adddress}}</td>
+        <td>{{i.args.supplier_address }}</td> 
+        <td>{{i.args.distributor_address }}</td> 
+        <td>{{i.args.quantity }}</td>
+        <td>{{i.args.amount_paid/1000000000000000000}}</td>       
+        <td>{{i.args.time  * 1000 | date:'dd-MM-yyyy HH:mm:ss '}}</td>  
+    </tr>
+</tbody>
+
+</table> 
+</div>
+
+<div class="col-sm-12">
+  <h4><b>Distributor to Retailer Transaction History</b></h4>
+  <table class= "table" style="overflow-y:auto;display:block;height:180px;">                     
+<thead class="tablecolor"  >
+<tr class="text-black">
+    <th>Crop ID</th>
+    <th>Farmer Address</th>
+    <th>Supplier Address</th>
+    <th>Distributor Address</th>
+    <th>Retailer Address</th>
+    <th>Quantity</th>
+    <th>Amount Paid</th>
+    <th>Bought on</th>
+</tr>
+</thead>
+<tbody id="body_bank">
+    <tr *ngFor="let i of retailer_event" >
+        <td>{{i.args.crop_id}}</td>
+        <td>{{i.args.farmer_adddress}}</td>
+        <td>{{i.args.supplier_address }}</td> 
+        <td>{{i.args.distributor_address }}</td> 
+        <td>{{i.args.retailer_address }}</td> 
+        <td>{{i.args.quantity }}</td>
+        <td>{{i.args.amount_paid/1000000000000000000}}</td>
+        <!-- item.date * 1000 | date:'yyyy-MM-dd HH:mm:ss Z' -->
+        <td>{{i.args.time * 1000 | date:'dd-MM-yyyy HH:mm:ss '}}</td>  
+    </tr>
+</tbody>
+
+</table> 
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<div class="footer">
+    <div class="content">
+            <p><br>Copyright &copy; ChainFlux</p>
+        </div>
+  </div>
+

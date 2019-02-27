@@ -1,0 +1,173 @@
+<div class="row">
+        <div class="col-sm-3">
+            <app-home></app-home>
+        </div>
+        <div class="col-sm-9">
+            
+           
+                
+                <div class="container-fluid">
+                        <h2><b>Overview</b></h2>
+                        <hr><br><br><br> 
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <h4><b>View Crop details</b></h4><br>
+                                <label for="name">Enter Crop ID</label>
+                                <input type="text" class="form-control"  #cid placeholder="Enter Crop id" name="Name">
+                                <br><br>
+                                <button type="submit" class="btn" (click)="display(cid.value)">search</button>
+                                <br> <br><h4>Total Crops:&nbsp;{{Total_products}}</h4>
+                        </div>
+                            
+                        
+                        <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-10">
+                                        <h4><b>Crop Details</b></h4><br>
+                    
+                                        <table class="table table-striped" style="overflow-y:auto;display:block;height:250px;width:1000px">
+                                            <thead class="tablecolor">
+                                              <tr>
+                                                <th>Crop Name</th>
+                                                <th>Crop ID</th>                                                
+                                                <th>Crop Price</th>
+                                                <th>Available Crop Quantity</th>
+                                                <th>Farmer ID</th>
+                                                <th>Farmer Name</th>
+                                                <th>Crop Added On</th>                           
+                                              </tr>
+                                            </thead>
+                                            <tbody id="body_bank">
+                                                  
+                                                <tr *ngFor="let p of product_details" >
+                                                    <td>{{ p.productname }}</td> 
+                                                    <td>{{ p.productid }}</td> 
+                                                     <td>{{ p.productprice }}</td>
+                                                    <td>{{ p.productquantity }}</td> 
+                                                    <td>{{ p.farmerid }}</td>
+                                                    <td>{{ p.farmername }}</td> 
+                                                    <td>{{ p.date }}</td>
+                                                </tr>
+                                        </tbody>
+                                          </table>
+        
+                                </div>
+                            </div>
+                               
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                                <h4>Crop Holder-<b>Supplier</b></h4>
+                                <table class= "table" style="overflow-y:auto;display:block;height:250px;width:1000px">                                                                                                              
+                                          <thead class="tablecolor"  >
+                                              <tr class="text-black">
+                                                  <th>Supplier ID</th>
+                                                  <th>Supplier Name</th>
+                                                  <th>Supplier Address</th>
+                                                  <th>Crop Price</th>
+                                                  <th>Crop Quantity</th>
+                                                  <th>Farmer ID</th>
+                                                  <th>Farmer Name</th>
+                                              </tr>
+                                          </thead>
+                                         
+                                          <tbody id="body_bank"> 
+                                                                                  
+                                                  <tr *ngFor="let i of suppliers_list" >
+                                                      <td>{{i.supplier_id}}</td>
+                                                      <td>{{i.supplier_name}}</td>
+                                                      <td>{{i.supplier_address }}</td> 
+                                                      <td>{{i.crop_price }}</td>
+                                                      <td>{{i.crop_quantity}}</td>
+                                                      <td>{{i.seller_id}}</td>
+                                                      <td>{{i.seller_name}}</td>
+                                                  </tr>
+                                          </tbody>
+                                          
+                                      </table> 
+
+                        </div>
+                      
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                                <h4>Crop Holder-<b>Distributor</b></h4>
+                                <table class= "table" style="overflow-y:auto;display:block;height:250px;width:1000px">                                                                             
+                          <thead class="tablecolor"  >
+                              <tr class="text-black">
+                                  <th>Distributor ID</th>
+                                  <th>Distributor Name</th>
+                                  <th>Distributor Address</th>
+                                  <th>Crop Price</th>
+                                  <th>Crop Quantity</th>
+                                  <th>Supplier ID</th>
+                                  <th>Supplier Name</th>
+                              </tr>
+                          </thead>
+                        
+                          <tbody id="body_bank">
+                                
+                                  <tr *ngFor="let i of shops_list" >
+                                      <td>{{i.shop_id}}</td>
+                                      <td>{{i.shop_name}}</td>
+                                      <td>{{i.shop_address }}</td> 
+                                      <td>{{i.crop_price }}</td>
+                                      <td>{{i.crop_quantity}}</td>
+                                      <td>{{i.seller_id}}</td>
+                                      <td>{{i.seller_name}}</td>
+                                  </tr>
+                          </tbody>
+                        
+                      </table> 
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-sm-12">
+                                    <h4>Crop Holder-<b>Retailer</b></h4>
+                                    <table class= "table" style="overflow-y:auto;display:block;height:250px;width:1000px">                     
+                                <thead class="tablecolor"  >
+                                  <tr class="text-black">
+                                      <th>Retailer ID</th>
+                                      <th>Retailer Name</th>
+                                      <th>Retailer Address</th>
+                                      <th>Crop Price</th>
+                                      <th>Crop Quantity</th>
+                                      <th>Distributor ID</th>
+                                      <th>Distributor Name</th>
+                                  </tr>
+                                </thead>
+                            
+                                <tbody id="body_bank">
+                                      
+                                      <tr *ngFor="let i of consumers_list" >
+                                          <td>{{i.consumer_id}}</td>
+                                          <td>{{i.consumer_name}}</td>
+                                          <td>{{i.consumer_address }}</td> 
+                                          <td>{{i.crop_price }}</td>
+                                          <td>{{i.crop_quantity}}</td>
+                                          <td>{{i.shop_id}}</td>
+                                          <td>{{i.shop_name}}</td>
+                                      </tr>
+                                </tbody>
+                            
+                                </table> 
+                            </div>
+                        </div>                      
+                </div>
+                <ngx-spinner></ngx-spinner>
+
+              <div class="footer">
+                    <div class="content">
+                            <p><br>Copyright &copy; ChainFlux</p>
+                        </div>
+              </div>
+
+        </div>
+      </div>
+      
+
+      <!-- <option *ngFor="let p of product_details" [ngValue]="crops"> 
+            {{ Total_products }}  
+      </option> -->

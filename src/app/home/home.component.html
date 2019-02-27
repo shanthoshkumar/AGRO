@@ -1,0 +1,91 @@
+<!-- <html>
+<body style="background-color: blueviolet">
+    <nav class="navbar navbar">
+      
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"  routerLink="/dashboard">ADMIN</a></li>
+            <li><a href="#"  routerLink="/user">USER</a></li>    
+        </ul>
+      
+    </nav>
+      
+    <div class="container">
+      <p></p>
+    </div>
+
+
+
+</body>  
+</html> -->
+
+<div class="row">
+    <div class="col-sm-3">
+        <nav class="navbar navbar-m2p sidebar" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a class="navbar-brand" href="#">
+                       <font size="5"style="color: #6aa3d5">SupplyChain</font><font size="4">Management</font>
+                    </a> -->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                   <a (click)="sign_out()" id="aid"><i class="fa fa-sign-out" style= "font-size:25px" aria-hidden="true">Signout</i></a>
+                    <ul class="nav navbar-nav"><br>
+                        <li class="separator">Account Details</li><br>
+                        <a><br><br>Account:</a><input type="text" class="form-control" value={{address}} placeholder="Address"readonly/><br>
+                         <a>Balance in Eth:</a><input type="text" class="form-control" value={{balance}} placeholder="Balance"readonly/><br>
+                         <li class="separator">
+                                <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"> -->
+                                   
+                                    ADMIN 
+                                <!-- </a> -->
+                            </li>
+                                <!-- <ul class="dropdown-menu forAnimate" role="menu"> -->
+                                        <li><a href="#" routerLink="/dashboard" >Overview</a></li>
+                                        <li><a href="#" routerLink="/persons" >Overall Details</a></li>
+                                        <li><a href="#" routerLink="/suppliercrops" >Supplier Details</a></li>
+                                        <li><a href="#" routerLink="/shopcrops" >Distributor Details</a></li>
+                                        <li><a href="#" routerLink="/consumercrops" >Retailer Details</a></li>
+                                        <!-- <li><a href="#" routerLink="/Transaction">Transaction History</a></li> -->
+                                        <li><a href="#" routerLink="/Filters">Filters</a></li>
+                                        <!-- <li><a href="#"  routerLink="/overview_history">Overview Transaction History</a></li>  -->
+                                <!-- </ul> -->
+                            
+                   
+                         <!-- <li class="separator">Account Details</li><br>
+                    <a><br><br>Account:</a><input type="text" class="form-control" value={{address}} placeholder="Address"readonly/><br>
+                     <a>Balance in Eth:</a><input type="text" class="form-control" value={{balance}} placeholder="Balance"readonly/><br> -->
+                     <!-- <li class="separator">Content</li><br> -->
+                       <!-- <li><a href="#"  routerLink="/dashboard">ADMIN</a></li>
+                       <li><a href="#"  routerLink="/persons">OVERALL DETAILS</a></li> -->
+                      <!-- <li><a href="#"  routerLink="/user">USER</a></li> -->
+                     
+                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+            <ngx-spinner></ngx-spinner>
+    </div>
+    <div class="col-sm-9">
+      
+        
+    
+
+
+    </div>
+  </div>
+  <div class="footer">
+        <div class="content">
+                <div class="content">
+                        <p><br>Copyright &copy; ChainFlux</p>
+                    </div>
+            </div>
+      </div>

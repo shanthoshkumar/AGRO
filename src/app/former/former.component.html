@@ -1,0 +1,130 @@
+<div class="row">
+    <div class="col-sm-3">
+        <app-header></app-header>
+    </div>
+    <div class="col-sm-9">
+      
+
+
+        <div class="container-fluid">
+                <h2><b>Farmer</b> {{farmer_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                <!-- <button class="btn btn-link btn-logout" (click)="signout()">Sign Out</button> -->
+                <!-- <h3 class="alignright"><b>Farmer Name</b> {{farmer_name}}</h3>  -->
+                <hr>
+           <br><br>
+            <div class="row">
+                
+                <div class="col-sm-4">
+                    <div class="col-sm-8">
+                        <form [formGroup]="angForm" novalidate>
+                                <div class="col-sm-12">
+                                     <h3><b> Add a New Crop</b></h3>
+                                    <br>
+                                    <div class="form-group">
+                                        <label>Crop Name</label>
+                                        <input class="form-control" formControlName="cname" type="text" id="id1" placeholder="Enter the Crop Name" #name >
+                                    </div>
+                                    <div *ngIf="angForm.controls['cname'].invalid && (angForm.controls['cname'].dirty || angForm.controls['cname'].touched)"  >
+                                        <div *ngIf="angForm.controls['cname'].errors.required">
+                                          <p style="color:rgb(240, 48, 48)"><small>Crop Name is required.</small></p>
+                                        </div>
+                                        
+                          </div>
+                                </div>
+                          <div class="col-sm-12">
+                              <div class="form-group">
+                                <label> Price</label>
+                                <input class="form-control" formControlName="pprice" type="number" id="id2" placeholder="Enter the Price" #price>
+                            </div>
+                            <div *ngIf="angForm.controls['pprice'].invalid && (angForm.controls['pprice'].dirty || angForm.controls['pprice'].touched)" >
+                                <div *ngIf="angForm.controls['pprice'].errors.required">
+                                    <p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+                                </div>
+                          </div>
+                          </div>
+                          <div class="col-sm-12">
+                              <div class="form-group">
+                                <label>Quantity</label>
+                                <input class="form-control" formControlName="qty" type="number" id = "id3" placeholder="Enter the Quantity" #quantity >
+                            </div>
+                            <div *ngIf="angForm.controls['qty'].invalid && (angForm.controls['qty'].dirty || angForm.controls['qty'].touched)"  >
+                                <div *ngIf="angForm.controls['qty'].errors.required">
+                                    <p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+                                </div>
+                          </div>
+                          </div>
+                          <br>&nbsp;&nbsp;
+                           <button type="button"
+                    [disabled]="angForm.pristine || angForm.invalid" #b2 class="btn" (click)="farmer_add_product(name.value,price.value,quantity.value)">Create Crop
+                  </button>&nbsp;
+              
+                <!-- <button type="button" class="btn btn-danger" #b1 (click)="cancel()">Cancel</button> -->
+                        </form>
+                      </div>    
+                  </div>
+                  
+                    <div class="col-sm-8">
+                            <h3><b>Available Crop Details</b></h3><br>
+                            <table class= "table" style="overflow-y:auto;display:block;height:250px;width:800px">
+                                                    <!--Table head-->
+                                      <thead class="tablecolor"  >
+                                          <tr class="text-black">
+                                                <th>Crop Name</th>
+                                              <th>Crop ID</th>                                            
+                                              <th>Added Date</th>
+                                              <th>Price<small>(in ether)</small></th>
+                                              <th>Quantity</th>
+                                          </tr>
+                                      </thead>
+                                      <!--Table head-->
+                                  
+                                      <!--Table body-->
+                                      <tbody id="body_bank">
+                                          
+                                              <tr *ngFor="let s of product_details" >                                                
+                                                  <td>{{s.product_name}}</td>
+                                                  <td>{{s.product_id}}</td>
+                                                  <td>{{ s.add_time }}</td> 
+                                                  <td>{{ s.product_price }}</td>
+                                                  <td>{{s.product_quantity}}</td>
+                                              </tr>
+                                      </tbody>
+                                      <!--Table body-->
+                                  </table> 
+                            
+                     
+                        
+                    </div>
+
+
+                  
+                  <!-- </div> -->
+                   
+               
+                </div>
+              
+                  
+              
+              <br>
+              <br>
+           
+      
+        </div>
+        <ngx-spinner></ngx-spinner>
+
+        <div class="footer">
+                <div class="content">
+                        <div class="content">
+                                <p><br>Copyright &copy; ChainFlux</p>
+                            </div>
+                    </div>
+              </div>
+              
+
+    </div>
+    
+  </div>
+
+
+
+

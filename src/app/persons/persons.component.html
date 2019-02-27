@@ -1,0 +1,133 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row">
+    <div class="col-sm-3">
+        <app-home></app-home>
+    </div>
+    <div class="col-sm-9">
+      
+        <div class="container-fluid">
+            <h2><b>Overall Details</b></h2>
+            <hr><br><br><br><br>
+            <div class="row">
+              <div class="col-sm-4">
+                  <h4><b>Available Farmer Details</b></h4><br>
+            
+                  <table class="table table-striped" style="overflow-y:auto;display:block;height:250px;width:250px">
+                      <thead class="tablecolor">
+                        <tr>
+                          <th>Farmer ID</th>
+                          <th>Farmer Name</th>
+                        </tr>
+                      </thead>
+                      <tbody id="body_bank">
+                            
+                          <tr *ngFor="let f of farmer_names" >
+                              <td>{{ f.farmerid }}</td> 
+                              <td>{{ f.farmername }}</td>
+                          </tr>
+                  </tbody>
+                    </table>
+              </div>
+              <div class="col-sm-4">
+                  <h4><b>Available Supplier Details</b></h4><br>
+            
+                  <table class="table table-striped" style="overflow-y:auto;display:block;height:250px;width:250px">
+                      <thead class="tablecolor">
+                        <tr>
+                          <th>Supplier ID</th>
+                          <th>Supplier Name</th>
+                        </tr>
+                      </thead>
+                      <tbody id="body_bank">
+                          
+                          <tr *ngFor="let s of supplier_names" >
+                              <td>{{ s.supplierid }}</td> 
+                              <td>{{ s.suppliername }}</td>
+                          </tr>
+                  </tbody>
+                    </table>
+              </div>
+              <div class="col-sm-4">
+                    <h4><b>Available Distributor Details</b></h4><br>
+            
+                    <table class="table table-striped" style="overflow-y:auto;display:block;height:250px;width:250px">
+                        <thead class="tablecolor">
+                          <tr>
+                            <th>Distributor ID</th>
+                            <th>Distributor Name</th>
+                          </tr>
+                        </thead>
+                        <tbody id="body_bank">
+                               
+                            <tr *ngFor="let sh of shop_names" >
+                                <td>{{ sh.shopid }}</td> 
+                                <td>{{ sh.shopname }}</td>
+                            </tr>
+                    </tbody>
+                      </table>
+                </div>
+               
+            </div>
+          <br><br><br>
+            <div class="row">
+                    <div class="col-sm-4">
+                            <h4><b>Available Retailer Details</b></h4><br>
+                    
+                            <table class="table table-striped" style="overflow-y:auto;display:block;height:250px;width:250px">
+                                <thead class="tablecolor">
+                                  <tr>
+                                    <th>Retailer ID</th>
+                                    <th>Retailer Name</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="body_bank">
+                                      
+                                    <tr *ngFor="let c of consumer_names" >
+                                        <td>{{ c.customerid }}</td> 
+                                        <td>{{ c.customername }}</td>
+                                    </tr>
+                            </tbody>
+                              </table>
+                        </div>
+                        <div class="col-sm-8">
+                                <h4><b>Available Crop Details</b></h4><br>
+                    
+                                <table class="table table-striped" style="overflow-y:auto;display:block;height:250px;">
+                                    <thead class="tablecolor">
+                                      <tr>
+                                        <th>Crop ID</th>
+                                        <th>Crop Name</th>
+                                        <th>Crop Price</th>
+                                        <th>Crop Quantity</th>
+                                        <th>Farmer ID</th>
+                                        <th>Farmer Name</th>
+                                        <th>Crop Added On</th>                           
+                                      </tr>
+                                    </thead>
+                                    <tbody id="body_bank">
+                                        
+                                        <tr *ngFor="let p of product_details" >
+                                            <td>{{ p.productid }}</td> 
+                                            <td>{{ p.productname }}</td>  
+                                            <td>{{ p.productprice }}</td>
+                                            <td>{{ p.productquantity }}</td> 
+                                            <td>{{ p.farmerid }}</td>
+                                            <td>{{ p.farmername }}</td> 
+                                            <td>{{ p.date }}</td>
+                                        </tr>
+                                </tbody>
+                                  </table>
+                        </div>
+              </div>
+          
+          </div>
+
+
+    </div>
+  </div>
+  <div class="footer">
+      <div class="content">
+            <p><br>Copyright &copy; ChainFlux</p>
+      </div>
+  </div>
+

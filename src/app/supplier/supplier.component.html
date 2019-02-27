@@ -1,0 +1,154 @@
+<div class="row">
+    <div class="col-sm-3">
+        <app-header></app-header>
+    </div>
+    <div class="col-sm-9">
+       
+
+        <div class="container">
+                <h2><b>Supplier</b> {{supplier_name}}</h2>
+                <hr>
+            <br><br>
+            <div class="row">
+              
+          <div class="col-sm-4">
+              <h3><b>Supplier Add Crop </b></h3>
+          <div class ="form-group">
+            <br>
+        <div class="col-sm-8">
+                <form [formGroup]="angForm" novalidate>
+
+            <div class="form-group">
+              <label>Crop ID</label>
+            <input type="number" class="form-control txtbox" formControlName="pid" placeholder="Enter the Crop ID" id="id1" #productid  maxlength="30">
+            </div>
+            <div *ngIf="angForm.controls['pid'].invalid && (angForm.controls['pid'].dirty || angForm.controls['pid'].touched)"  >
+                    <div *ngIf="angForm.controls['pid'].errors.required">
+                        <p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+                    </div>
+        </div>
+
+            <div class="form-group">
+                <label>Quantity</label>
+            <input type="number" class="form-control txtbox" formControlName="qty"   #supplierquantity id="id2" placeholder="Enter the Quantity" maxlength="50" >
+            </div>
+            <div *ngIf="angForm.controls['qty'].invalid && (angForm.controls['qty'].dirty || angForm.controls['qty'].touched)"  >
+                    <div *ngIf="angForm.controls['qty'].errors.required">
+                        <p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+                    </div>
+            </div>
+                
+            <div class="form-group">
+                <label>Update Price</label>
+            <input type="number" formControlName="price" class="form-control txtbox" #supplierrate id="id3" placeholder=" Enter New Price" maxlength="30" >
+            </div>
+            <div *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)"  >
+                    <div *ngIf="angForm.controls['price'].errors.required">
+                        <p style="color:rgb(240, 48, 48)"><small>Enter Number Only</small></p>
+                    </div>
+        </div>
+           
+           <button [disabled]="angForm.pristine || angForm.invalid" #b2 type="button" class="btn" (click)="buy_crop(productid.value,supplierquantity.value,supplierrate.value)">Purchase Crop</button>&nbsp;
+                
+                  <!-- <button type="submit" class="btn btn-danger" #b1 (click)="cancel()">Cancel</button> -->
+        </form>
+                </div>
+    </div>
+        </div>
+     
+        
+     
+        
+        
+        <div class="col-sm-8">
+            
+                <h3><b>Available Crop Details</b></h3><br>
+                <div class="table-wrapper-2" >  
+                <table class="table table-striped" >
+                   <thead class="tablecolor">
+                     <tr>
+                         <th>Crop Name</th>
+                         <th>Crop ID</th>                        
+                         <th>Date Added</th>
+                         <th>Price <small>(in ether)</small></th>
+                         <th>Quantity</th>
+                         <th>Farmer ID</th>
+                     </tr>
+                   </thead>
+                   <tbody id="body_bank">
+                       
+                       <tr *ngFor="let s of available_crops" >
+                        <td>{{s.cropname}}</td>
+                           <td>{{s.cropid}}</td>                         
+                           <td>{{s.date }}</td> 
+                           <td>{{s.price }}</td>
+                           <td>{{s.quantity}}</td>
+                           <td>{{s.farmerid}}</td>
+                       </tr>
+                     </tbody>
+                 </table>
+                 </div>
+
+        </div>  
+        </div>
+<br><br><br>
+<div class="row">
+        <br><br>
+    <div class="col-sm-1">
+
+    </div>
+    <div class="col-sm-11">
+   <!-- <div class="col-sm-12"> -->
+        <h3><b>Purchased Crop Details</b></h3><br>
+        <div class="table-wrapper-2" >    
+              <table class= "table" >
+                <thead class="tablecolor">
+                  <tr>
+                    <th>Crop Name</th>
+                      <th>Crop ID</th>                     
+                      <th >Date Added</th>
+                      <th>Price  <small>(in ether)</small></th>
+                      <th>Quantity</th>
+                      <th>Farmer ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                       
+                    <tr *ngFor="let s of purchased_crops" >
+                     <td>{{s.cropname}}</td>
+                      <td>{{s.cropid}}</td>                   
+                      <td>{{s.date }}</td> 
+                      <td>{{s.price }}</td>
+                      <td>{{s.quantity}}</td>
+                      <td>{{s.farmerid}}</td>
+                  </tr>
+                    
+                  </tbody>
+              </table>
+          <!-- </div> -->
+          </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+
+
+
+
+          </div>
+       
+         
+          
+        
+            <ngx-spinner></ngx-spinner>
+            <div class="footer">
+                    <div class="content">
+                            <p><br>Copyright &copy; ChainFlux</p>
+                        </div>
+                  </div>
+
+
+    </div>
+  </div>
+  
+
